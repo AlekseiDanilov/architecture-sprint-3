@@ -430,7 +430,7 @@ REST API для взаимодействия с пользователем, а A
     <td>GET</td>
     <td>-</td>
     <td>200</td>
-    <td>{"id": 1, "device_id": 1, "datetime": "22.09.2024, 22:06:10", "data": {"temperature": "22C"}}</td>
+    <td>{"id": 1, "device_id": 1, "datetime": 1727210751214, "data": {"temperature": "22C"}}</td>
   </tr>
   <tr>
     <td>/devices/11111telemetry/latest</td>
@@ -468,14 +468,14 @@ REST API для взаимодействия с пользователем, а A
     <th>Тело ответа</th>
   </tr>
   <tr>
-    <td>/devices/1/telemetry?from=21.09.2024&until=23.09.2024</td>
+    <td>/devices/1/telemetry?from=2024-09-23&until=2024-09-25</td>
     <td>GET</td>
     <td>-</td>
     <td>200</td>
-    <td>[{"id": 1, "device_id": 1, "datetime": "22.09.2024, 22:06:10", "data": {"temperature": "22C"}}]</td>
+    <td>[{"id": 1, "device_id": 1, "datetime": 1727210751214, "data": {"temperature": "22C"}}]</td>
   </tr>
   <tr>
-    <td>/devices/11111/telemetry?from=21.09.2024&until=23.09.2024</td>
+    <td>/devices/11111/telemetry?from=2024-09-23&until=2024-09-25</td>
     <td>GET</td>
     <td>-</td>
     <td>404</td>
@@ -518,6 +518,32 @@ REST API для взаимодействия с пользователем, а A
 [Open API](/docs-api/open-api.yaml)
 
 [Async API](/docs-api/async-api.yaml)
+
+# Задание 2 Разработка MVP
+
+Для удобного запуска и демонстрации работы MVP были подготовлены файлы `docker-compose.yaml` и `test.sh`
+
+Чтобы воспользоваться ими, необходимо выполнить простые действия
+1. В файле `docker-compose.yaml` у сервисов `telemetry-service` и `device-service` установить переменную окружения `KAFKA: <local ip>:29092`, где `<local ip>` - ip адрес компьютера. localhost и 128.0.0.1 устанавливать нельзя.
+2. Выполнить в корне проекта запуск скрипта `./test.sh`
+
+# Задание 2.1 Новые микросервисы и интеграция с монолитом
+1. Язык программирования - JS (Node JS)
+2. Проекты созданы. Директории telemetry-service и device-service
+3. API разработано
+4. Логика реализована. (для простоты реализации была использована in memory db)
+5. Разработанное API поддерживает интеграцию с монолитом через REST и Kafka
+6. Развертывание выполнено в docker-compose
+
+# Задание 2.3 Подготовка 3rd party сервисов для связи микросервисов
+1-2. Kafka развёрнута и настроена
+
+3-4. API Gateway Kong развёрнут и настроен
+
+5. Интеграция микросервисов выполнена
+
+6. MVP протестировано. Подготовлен файл. `test.sh`
+
 
 ---
 

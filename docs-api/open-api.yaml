@@ -240,9 +240,8 @@ paths:
                     format: int64
                     example: 1
                   datetime:
-                    type: string
-                    example: "22.09.2024, 22:06:10"
-                    format: datetime
+                    type: integer
+                    example: 1727210751214
                   data:
                     type: object
                     example: {"temperature": "22C"}
@@ -270,14 +269,14 @@ paths:
           schema:
             type: string
             format: date
-            example: 21.09.2024
+            example: 2024-09-22
         - name: until
           in: query
           required: true
           schema:
             type: string
             format: date
-            example: 23.09.2024
+            example: 2024-09-25
 
       responses:
         '200':
@@ -298,9 +297,8 @@ paths:
                       format: int64
                       example: 1
                     datetime:
-                      type: string
-                      example: "22.09.2024, 22:06:10"
-                      format: datetime
+                      type: integer
+                      example: 1727210751214
                     data:
                       type: object
                       example: {"temperature": "22C"}
